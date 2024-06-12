@@ -15,16 +15,17 @@ textos[i].classList.add("ativo");
 }
 const contadores = document.querySelectorAll(".contador");
 const tempoObjetivo1 = new Date("2024-10-05T00:00:00");
-const tempoObjetivo2 = new Date("2024-06-05T00:00:00");
+const tempoObjetivo2 = new Date("2024-06-22T00:00:00");
 const tempoObjetivo3 = new Date("2024-12-30T00:00:00");
 const tempoObjetivo4 = new Date("2025-01-05T00:00:00");
 
-const tempos = [tempoObjetivo1,tempoObjetivo2,tempoObjetivo3,tempoObjetivo4]
-function atualizaCronometo(){
+const tempos = [tempoObjetivo1,tempoObjetivo2 ,tempoObjetivo3 ,tempoObjetivo4]
+function atualizaCronometro(){
+
     for(let i= 0; i<contadores.length;i++){
         document.getElementById("dias"+i).textContent = calculaTempo(tempos[i])[0];
         document.getElementById("horas"+i).textContent = calculaTempo(tempos[i])[1];
-        document.getElementById("minutos"+i).textContent = calculaTempo(tempos[i])[2];
+        document.getElementById("minuto"+i).textContent = calculaTempo(tempos[i])[2];
         document.getElementById("segundos"+i).textContent = calculaTempo(tempos[i])[3];
         }
         }
@@ -44,13 +45,13 @@ if(tempoFinal>0){
 return [dias,horas,minutos,segundos];
 }
 else{
-    return [0,0,0,0];
+    return [0,0,0,0]
 }
 
-
-function comecaCrometro(){
-    atualizaCronometo();
-    setInterval(atualizaCronometo, 1000);
 }
+function comecaCronometro() {
+    atualizaCronometro();
+    setInterval( atualizaCronometro, 1000);
+
 }
  comecaCronometro ();
